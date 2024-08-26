@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import * as monaco from 'monaco-editor'
-import { editor } from 'monaco-editor'
+import * as monaco from 'monaco-editor-core'
+import { editor } from 'monaco-editor-core'
 import { loadGrammars, loadTheme } from 'monaco-volar'
 import { vueBiolerplait, tsBiolerplait } from '@/demo'
 
