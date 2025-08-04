@@ -1,4 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
+import * as path from "path";
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -13,5 +14,12 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  optimizeDeps: {
+    include: ["path-browserify", "@vue/language-service", "monaco-editor-core"],
+  },
+  build: {
+    minify: false,
+    outDir: path.resolve(__dirname, "./out"),
+  },
 })

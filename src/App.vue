@@ -1,10 +1,15 @@
 <script setup lang="ts">
+import { ref, watch } from 'vue'
 import MonacoEditor from './components/MonacoEditor.vue'
+import data from './components/Test.vue?raw'
+const vueBiolerplate = ref(data)
+
+watch(vueBiolerplate, (value) => console.log(value))
 </script>
 
 <template>
   <Suspense>
-    <MonacoEditor />
+    <MonacoEditor v-model="vueBiolerplate" lang="vue" file-name="Test.vue" />
   </Suspense>
 </template>
 

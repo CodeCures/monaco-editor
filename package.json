@@ -13,15 +13,22 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "monaco-editor-core": "^0.51.0",
+    "@volar/monaco": "1.7.9",
+    "@volar/typescript": "1.7.9",
+    "volar-service-typescript": "0.0.8",
+    "@vue/language-service": "1.8.2",
+    "monaco-editor-core": "^0.39.0",
     "monaco-editor-textmate": "^4.0.0",
     "monaco-textmate": "^3.0.1",
+    "path-browserify": "^1.0.1",
     "monaco-volar": "^0.4.0",
     "onigasm": "^2.2.5",
+    "shiki": "^1.14.1",
     "vue": "^3.4.29"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",
+    "@shikijs/monaco": "^1.14.1",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^20.14.5",
     "@vitejs/plugin-vue": "^5.0.5",

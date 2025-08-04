@@ -1,25 +1,22 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import * as monaco from 'monaco-editor-core'
-import { editor } from 'monaco-editor-core'
-import { loadGrammars, loadTheme } from 'monaco-volar'
-import { vueBiolerplait, tsBiolerplait } from '@/demo'
+import { useMonacoEditor } from '../composables/useMonacoEditor'
 
-const editorEl = ref<HTMLElement>()
-let editorInstance: editor.IStandaloneCodeEditor
-
-const theme = await loadTheme(editor)
-const model = editor.createModel(vueBiolerplait, 'vue')
-onMounted(() => {
-  editorInstance = editor.create(editorEl.value as HTMLElement, {
-    model,
-    theme: theme.dark
-  })
-
-  loadGrammars(monaco, editorInstance)
+const vModel = defineModel()
+const props = defineProps({
+  fileName: String,
+  lang: String
 })
+
+const { editorEl } = useMonacoEditor(vModel, props)
 </script>
 
 <template>
-  <div ref="editorEl" id="editor"></div>
+  <div ref="editorEl" id="editor" style="height: 100vh"></div>
 </template>
+
+<style scoped>
+#editor {
+  width: 100%;
+  height: 100%;
+}
+</style>
